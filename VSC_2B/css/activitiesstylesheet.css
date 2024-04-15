@@ -1,9 +1,8 @@
 .transition {
-  font-size: 20rem;
+  font-size: 3.5rem;
+
   background-image: linear-gradient(135deg, #f02fc2, #6094ea, #fdcbf1);
   background-size: 500%;
-
-  display: initial;
   background-clip: text;
   color: transparent;
   animation: bgAnimation 2s linear infinite;
@@ -24,16 +23,148 @@
 
 body,
 html {
-  height: 100%;
+  height: auto;
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+}
+
+/* this code is from https://freefrontend.com/html-menu-with-javascript/#google_vignette */
+/* Nav Bar Style begins */
+/* Open button */
+.trigger {
+  background: #000000;
+  outline: 0;
+  padding: 18px 15px;
+
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.5em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  transition: 0.15s ease-in-out;
+  cursor: pointer;
+  top: 0;
+  position: fixed;
+}
+.trigger:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Nav position and opening class */
+.full-screen-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.2s ease-in-out;
+  display: none;
+}
+.open-nav {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-* {
-  border: 0.3px solid;
+/* Backgroup position and animation */
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  cursor: pointer;
+  animation: fadeIn 0.2s ease-in-out forwards;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* List item styling & animation */
+ul {
+  z-index: 9999;
+  position: relative;
+}
+ul li {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: 0.25s ease-in-out animateList forwards;
+  font-size: 1.5em;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+ul li:last-child {
+  margin-bottom: 0;
+}
+@keyframes animateList {
+  from {
+    margin-top: -60px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+/* Item links styles and hover effect*/
+ul li a {
+  text-decoration: none;
+  color: #fffeea;
+  font-size: 1.5em;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: 0.15s ease-in-out;
+}
+ul li a:hover,
+ul li a i {
+  color: #ffa500;
+}
+/* Nav Bar Style ends */
+
+header {
+  font-family: "Lalezar", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  color: #fdcbf1;
+}
+
+h2 {
+  margin-top: 50px;
+  padding: 0;
+  font-size: 1.5rem;
+  text-align: start;
+  color: #fdcbf1;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h2:hover {
+  color: #ff00c3;
+}
+
+p {
+  text-align: center;
+  color: #ffe8fa;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 30px;
+}
+
+/* * {
+  border: 0.3px solid;
+} */
+
 .blockbox {
   display: block;
   margin: auto;
@@ -41,7 +172,8 @@ html {
 }
 
 .outercontainer {
-  width: 100%;
+  width: 50%;
+  height: auto;
   margin: auto;
 }
 
@@ -52,6 +184,8 @@ html {
 img {
   display: flex;
   margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
   padding: auto;
   justify-content: center;
   align-items: center;

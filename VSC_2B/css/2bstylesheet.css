@@ -181,9 +181,11 @@ ul li a i {
 
 .project2b {
   font-size: 5em;
-  font-family: "Lilita One", sans-serif;
+
+  font-family: "Lalezar", system-ui;
   font-weight: 400;
   font-style: normal;
+
   margin-top: 17%;
   padding: 0;
   display: flex;
@@ -192,13 +194,20 @@ ul li a i {
 }
 
 .transition {
-  background-image: linear-gradient(135deg, #fffee5, #00ffa6, #fdcbf1, #ff0668);
+  background-image: linear-gradient(
+    135deg,
+    #fffee5,
+    #00ffa6,
+    #fdcbf1,
+    #ff0668,
+    #ffea06
+  );
   background-size: 500%;
 
   display: initial;
   background-clip: text;
   color: transparent;
-  animation: bgAnimation 7s linear infinite;
+  animation: bgAnimation 4s linear infinite;
 }
 
 /* 动画 */
