@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* 设置页面高度为视口高度，使内容垂直居中 */
+            margin: 0;
+            background-color: black;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* * {
+            border: 1px solid white;
+        } */
+
+        header {
+            text-align: center;
+            color: #ffffff;
+            font-size: 2rem;
+        }
+
+        p {
+            text-align: center;
+            color: #ffffff;
+            margin: 30px;
+        }
+
+        .outercontainer {
+
+            width: 70%;
+            margin: 0;
+            flex-direction: column;
+            /* width: 50%; */
+            /* margin-top: 50vh; */
+
+        }
+
+        button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #000000;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 10px;
+            color: #ffffff;
+            border-radius: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <a href="index.html"> <button>back</button></a>
+
+    <div class="outercontainer">
+        <header id="typing-text">Hi !
+            <br>Here is my Interactive Web Work Book
+        </header>
+
+        <p id="typing-text">Welcome to my Learning Process Showcase website! I'm Lucy, a learner with a passion for
+            interactive
+            media.
+            This website is a platform for me to showcase the content, skills and ideas I have learned during my
+            course.
+            Through this
+            site, you will be able to gain insight into my learning process in the field of interactive media. I
+            will
+            share the
+            theoretical knowledge I have learned in the classroom as well as my practical application experience in
+            my
+            hands-on
+            projects.
+            Besides showcasing my academic achievements, this website is also a space for communication and
+            interaction.
+            I welcome
+            you to share your ideas, suggestions and feedback with me. I believe that by communicating with each
+            other,
+            we can grow
+            together and explore the infinite possibilities of interactive media together. Thank you for visiting!
+            Please
+            feel free
+            to browse my website and actively contact me, let's explore the exciting world of interactive media
+            together!
+        </p>
+
+    </div>
+    <script>
+        // 要显示的文本
+        var text = "Hi ! Here is my Interactive Web Work Book";
+
+        // 获取段落元素
+        var paragraph = document.getElementById("typing-text");
+
+        // 设置初始文本为空字符串
+        paragraph.textContent = "";
+
+        // 定义显示文本的函数
+        function typeWriter(text, i) {
+            // 如果还没显示完整个文本，则继续显示
+            if (i < text.length) {
+                // 将下一个字符添加到段落中
+                paragraph.textContent += text.charAt(i);
+                // 延时一定时间后递归调用自身
+                setTimeout(function () {
+                    typeWriter(text, i + 1);
+                }, 100); // 每个字符显示的间隔时间，单位为毫秒
+            }
+        }
+
+        // 调用显示文本的函数，并传入初始参数
+        typeWriter(text, 0);
+    </script>
+</body>
+
+</html>

@@ -1,11 +1,19 @@
 .transition {
   font-size: 3.5rem;
 
-  background-image: linear-gradient(135deg, #f02fc2, #6094ea, #fdcbf1);
+  background-image: linear-gradient(
+    135deg,
+    #a6ff00,
+    #6094ea,
+    #fdcbf1,
+    #ea6060,
+    #ffa200,
+    #8800ff
+  );
   background-size: 500%;
   background-clip: text;
   color: transparent;
-  animation: bgAnimation 2s linear infinite;
+  animation: bgAnimation 6s linear infinite;
 }
 
 /* 动画 */
@@ -152,6 +160,7 @@ h2 {
 
 h2:hover {
   color: #ff00c3;
+  transform: rotate(0deg) scale(1.1);
 }
 
 p {
@@ -175,6 +184,7 @@ p {
   width: 50%;
   height: auto;
   margin: auto;
+  margin-bottom: 30px;
 }
 
 .centertext {
@@ -184,8 +194,8 @@ p {
 img {
   display: flex;
   margin: auto;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: auto;
   justify-content: center;
   align-items: center;

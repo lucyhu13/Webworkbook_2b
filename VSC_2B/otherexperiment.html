@@ -13,35 +13,224 @@
             height: 100%;
             margin: 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
+
+
         }
 
         p {
-            font-size: 20px;
-            text-align: center;
+            font-size: 15px;
+            text-align: start;
             color: palevioletred;
+            width: 70vh;
+            margin: 40px;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
+        header {
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            font-weight: bolder;
+            text-align: start;
+            font-size: 2rem;
+            color: #000000;
+            margin: 40px;
+
+        }
+
+        H1 {
+            max-height: fit-content;
+
+
+        }
+
+        img {
+            display: flex;
+            margin: auto;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding: auto;
+            justify-content: center;
+            align-items: center;
+            width: 70vh;
+        }
+
+        /* * {
+            border: 1px solid #002aff;
+        } */
+
+        .outercontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: max-content;
+            height: 100%;
+            margin: auto;
+            margin-top: 100px;
+            flex-direction: row;
+        }
+
+        h2 {
+            margin: 50px;
+            padding: 3px;
+            font-size: 1.5rem;
+            text-align: start;
+            color: #ff00c3;
+            text-decoration: none;
+            font-family: 'Courier New', Courier, monospace;
+            max-height: fit-content;
+        }
+
+        h2:hover {
+            color: #03fff2;
+        }
+
+        .back {
+            position: fixed;
+            top: 0px;
+            left: 10px;
+            align-items: start;
+            color: coral;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .runingimg {
+            width: 150px;
+            height: 150px;
+            position: fixed;
+            background-image: url('pictures/cat.gif');
+            background-size: cover;
+
+        }
+
+        img {
+            margin: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        img:hover {
+            transform: rotate(0deg) scale(1.1);
         }
     </style>
 
 </head>
 
 <body>
-    <p>Here are some other experiments</p>
-    <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/sketchdraw/">
-        <p>drawing 1</p>
-    </a>
 
 
-    <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/sketchpixelbutterfly">
-        <p>drawing 2
+    <div class="runingimg"></div>
 
-        </p>
-    </a>
+    <div class="outercontainer">
+
+        <div><a href="https://lucyhu13.github.io/Webworkbook_2b/VSC_2B/2b_2.html">
+                <h3 class="back" style="text-align: end;">BACK</h3>
+            </a>
+        </div>
+
+        <header>Here are some other experiments</header>
 
 
+        <p>First two drawings are from openprocessing</p>
+        <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/sketchdraw/">
+            <h2>Drawing1</h2>
+        </a>
+
+
+
+
+        <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/sketchpixelbutterfly">
+            <h2>Drawing2
+
+            </h2>
+        </a>
+
+        <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/sketchpixelbutterfly">
+            <h2>Collage</h2>
+        </a>
+        <p>I want to try to make a collage-style web page with processing. I want to click on the web page to
+            display
+            various collages. Each time I click the mouse, new collages
+            will refresh and reappear. I first upload the image into processing and then commond+K to display the
+            folder
+            and set the
+            location of the image to random. In this case, the picture will overflow a lot every time you click it.
+            In
+            order to ensure that the image does not overflow the screen, I changed the position to
+            -img.width/height.
+            This method cannot guarantee that the collage that appears every time will be beautiful, so I plan to
+            make a
+            few fixed
+            ones, and then they will change with a click of the mouse.</p>
+        <img src="pictures/collage1.png" alt="">
+
+        <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/music/">
+            <h2>Music Wave</h2>
+        </a>
+        <p>This used fft to analysis the song, and transform it into visual,I preload the music first,and then used fft
+            to analysis it. And then make the cylinder in a circle by using for loop </p>
+        <img src="pictures/music1.png" alt="">
+        <img src="pictures/Music3.png" alt="">
+        <img src="pictures/music4.png" alt="">
+
+        <a href="https://lucyhu13.github.io/Webworkbook_2b/otherexperiment/cursor1/">
+            <h2>Cursor gif</h2>
+        </a>
+    </div>
+
+
+
+    <div class="backgroundimg"><img src="pictures/rabbit.gif" alt=""></div>
 </body>
+
+<script>
+    let img = document.querySelector('.runingimg')
+    // 定义小图片的旋转角度
+    let deg = 0
+    // 定义小图片位于网页左侧的位置
+    let imgx = 0
+    // 定义小图片位于网页顶部的位置
+    let imgy = 0
+    // 定义小图片x轴的位置
+    let imgl = 0
+    // 定义小图片y轴的位置
+    let imgt = 0
+    // 定义小图片翻转的角度
+    let y = 0
+    // 定义一个计数器
+    let index = 0
+
+    window.addEventListener('mousemove', function (xyz) {
+        // 获取网页左侧距离的图片位置
+        imgx = xyz.x - img.offsetLeft - img.clientWidth / 2
+        // 多去网页顶部距离图片的位置
+        imgy = xyz.y - img.offsetTop - img.clientHeight / 2
+        // 套入公式，定义图片的旋转角度
+        deg = 360 * Math.atan(imgy / imgx) / (2 * Math.PI)
+        // 每当鼠标移动的时候重置index
+        index = 0
+        // 定义当前鼠标的位置
+        let x = event.clientX
+        // 当鼠标的x轴大于图片的时候，提普安就要对着鼠标，所以需要将图片翻转过来
+        // 否则就不用翻转
+        if (img.offsetLeft < x) {
+            y = -180
+        } else {
+            y = 0
+        }
+    })
+    setInterval(() => {
+        // 设置小图片的旋转和翻转
+        img.style.transform = "rotateZ(" + deg + "deg) rotateY(" + y + "deg)"
+        index++
+        // 在这里设置小图片的位置和速度，并判断小图片到达鼠标位置时停止移动
+        if (index < 50) {
+            imgl += imgx / 50
+            imgt += imgy / 50
+        }
+
+        img.style.left = imgl + "px"
+        img.style.top = imgt + "px"
+    }, 10)
+
+</script>
 
 </html>

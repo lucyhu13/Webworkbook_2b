@@ -267,3 +267,69 @@ ul li a i {
   bottom: 0;
   right: 10%;
 }
+
+/* 鼠标光标悬停在图片上时显示的文本 */
+.custom-cursor:hover::after {
+  content: "Developments";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-cursor1:hover::after {
+  content: "WEEK6";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-cursor2:hover::after {
+  content: "OTHER EXPERIMENTS";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-cursor3:hover::after {
+  content: "WEEK4";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.custom-cursor4:hover::after {
+  content: "WEEK5";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
