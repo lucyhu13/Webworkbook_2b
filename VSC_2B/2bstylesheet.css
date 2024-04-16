@@ -1,0 +1,335 @@
+html,
+body {
+  max-height: 100%;
+  width: 100%;
+  background-color: black;
+  overflow: hidden;
+}
+
+/* * {
+  border: 0.04px solid beige;
+} */
+
+/* this code is from https://freefrontend.com/html-menu-with-javascript/#google_vignette */
+/* Nav Bar Style begins */
+/* Open button */
+.trigger {
+  background: #000000;
+  outline: 0;
+  padding: 18px 15px;
+  color: #fff;
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.5em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  transition: 0.15s ease-in-out;
+  cursor: pointer;
+}
+.trigger:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Nav position and opening class */
+.full-screen-nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: 0.2s ease-in-out;
+  display: none;
+}
+.open-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Backgroup position and animation */
+.backdrop {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  cursor: pointer;
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* List item styling & animation */
+ul {
+  z-index: 9999;
+  position: relative;
+}
+ul li {
+  list-style: none;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: 0.25s ease-in-out animateList forwards;
+  font-size: 1.5em;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+ul li:last-child {
+  margin-bottom: 0;
+}
+@keyframes animateList {
+  from {
+    margin-top: -60px;
+    opacity: 0;
+  }
+  to {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+/* Item links styles and hover effect*/
+ul li a {
+  text-decoration: none;
+  color: #fffeea;
+  font-size: 1.5em;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition: 0.15s ease-in-out;
+}
+ul li a:hover,
+ul li a i {
+  color: #ffa500;
+}
+/* Nav Bar Style ends */
+
+.flexBox {
+  /* 默认row */
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/*动画*/
+.image {
+  transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+
+.image:hover {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.img12 {
+  width: 40%;
+  min-height: 20%;
+  position: absolute;
+  bottom: -15vh;
+  right: 20vh;
+}
+
+.img9 {
+  width: 20%;
+  height: auto;
+  display: flex;
+  position: absolute;
+  bottom: -15vh;
+  left: 45vh;
+}
+
+.img76 {
+  width: 35%;
+  height: auto;
+  display: flex;
+  position: absolute;
+  top: -10vh;
+  right: 0vh;
+}
+
+.img10 {
+  width: 20%;
+  height: auto;
+  display: flex;
+  position: absolute;
+  top: 10%;
+  left: 0vh;
+  rotate: 30deg;
+}
+
+.img100 {
+  width: 25%;
+  height: auto;
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+  left: 0vh;
+}
+
+.project2b {
+  font-size: 5em;
+
+  font-family: "Lalezar", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  margin-top: 17%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transition {
+  background-image: linear-gradient(
+    135deg,
+    #fffee5,
+    #00ffa6,
+    #fdcbf1,
+    #ff0668,
+    #ffea06
+  );
+  background-size: 500%;
+
+  display: initial;
+  background-clip: text;
+  color: transparent;
+  animation: bgAnimation 4s linear infinite;
+}
+
+/* 动画 */
+@keyframes bgAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.orange {
+  height: auto;
+  width: 30%;
+  display: flex;
+  position: absolute;
+  bottom: -10%;
+  left: 0vh;
+}
+
+.human {
+  height: auto;
+  width: 20%;
+  display: flex;
+  position: absolute;
+  top: 10%;
+  left: 10vh;
+}
+
+.flower {
+  height: auto;
+  width: 17%;
+  display: flex;
+  position: absolute;
+  right: -3%;
+  bottom: -3%;
+}
+
+.rose {
+  height: auto;
+  width: 40%;
+  display: flex;
+  position: absolute;
+  right: -3%;
+  top: -40%;
+}
+
+.orange1 {
+  height: auto;
+  width: 17%;
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+}
+
+/* 鼠标光标悬停在图片上时显示的文本 */
+.custom-cursor:hover::after {
+  content: "Developments";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+ font-family: 'Courier New', Courier, monospace;
+}
+
+.custom-cursor1:hover::after {
+  content: "WEEK6";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+font-family: 'Courier New', Courier, monospace;
+}
+
+.custom-cursor2:hover::after {
+  content: "OTHER EXPERIMENTS";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.custom-cursor3:hover::after {
+  content: "WEEK4";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+font-family: 'Courier New', Courier, monospace;
+}
+
+.custom-cursor4:hover::after {
+  content: "WEEK5";
+  /* 设置要显示的文本 */
+  position: fixed;
+  top: 0%;
+  left: 50px;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 30px;
+  font-family: "Courier New", Courier, monospace;
+}
