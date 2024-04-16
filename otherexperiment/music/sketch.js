@@ -35,7 +35,7 @@ function draw() {
     translate(x, y, curH / 2);
     rotateX(PI / 2);
     let c1 = color(150, 200, 200);
-    let c2 = color(200, 255, 195);
+    let c2 = color(255, 13, 141);
     let rate = map(a, 0, 2 * PI, 0, 0.9);
     let col = lerpColor(c1, c2, rate);
     stroke(col);
