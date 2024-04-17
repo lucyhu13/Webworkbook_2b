@@ -1,13 +1,8 @@
-let font;
-let time = "000";
 let diceSize = 140;
 let running = false;
-let initialTime;
-let interval = 1000; //one second
 
 function setup() {
   frameRate(100);
-  font = "Calibri";
   createCanvas(windowWidth, windowHeight);
   background(194, 39, 45);
   noLoop();
@@ -81,6 +76,3 @@ function drawShpae(side1, side2) {
     ellipse(200, 300, 100, 100);
   }
 }
-
-// The mouseWheel function is not typically used in p5.js for input related to the functionality you described,
-// so it can be omitted unless you have a specific use case for it.
