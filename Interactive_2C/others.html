@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other</title>
+    <link rel="stylesheet" href="weeks.css">
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
+</head>
+
+<style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        border: 0;
+
+    }
+
+    canvas {
+        margin: 0;
+        padding: 0;
+        display: block;
+        touch-action: none;
+        position: absolute;
+        /* Ensures canvas is positioned relative to nearest positioned ancestor */
+        z-index: 1000;
+        position: fixed;
+        /* Fixes the canvas across the entire viewport */
+        top: 0;
+        left: 0;
+        width: 100vw;
+        /* Full viewport width */
+        height: 100vh;
+        /* Full viewport height */
+    }
+</style>
+
+
+<body>
+
+
+
+    <canvas></canvas>
+    <!-- this js code is from the internet -->
+
+    <header>Development & Researches</header>
+    <div style="margin-bottom: 30vh;" class=" gridcontent">
+        <h1 style=" align-self: center;" class="title1">Grid method</h1>
+        <p class="p1">In project 2C, I mainly want to build my website through the Grid method. Before, I relied
+            more on
+            the two modes of flex
+            and block. However, both of these have certain limitations. The grid method can quickly lay out the
+            overall
+            layout and
+            is responsive. I mainly arrange it through the grid-template-areas tag. The most important thing is to
+            set a
+            class for
+            each element and then map it to the grid.</p>
+        <img style="height: 85vh;" class="img1" src="pics/gridmethod.png" alt="">
+    </div>
+
+    <div style="margin-bottom: 30vh;" class=" gridcontent4">
+        <h1 class="title5">Optics in Light-sculptures</h1>
+        <p class=" p5">The "Optics in Light Sculptures" project on Instructables combines
+            artistic expression with
+            the
+            scientific exploration
+            of light. It involves creating sculptures that manipulate light through optical principles like
+            refraction,
+            reflection,
+            and dispersion. Aimed at merging art with science, making the complex science of optics more accessible
+            and
+            engaging
+            through hands-on artistic creation. Each sculpture is constructed using materials such as lenses and
+            mirrors
+            to showcase
+            different properties of light, providing both a visual spectacle and a learning experience.
+            <br>
+            <br>https://www.instructables.com/Optics-in-Light-sculptures/
+        </p>
+
+        <div style=" justify-self: center;
+      align-self: center; z-index: 10001;" class="video"><iframe width="560" height="315"
+                src="https://www.youtube.com/embed/Zgpg4WDRabE?si=Wp8I5BlQtfzoE9zY" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    </div>
+
+    <script>
+        var canvas = document.querySelector('canvas');
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        var c = canvas.getContext('2d');
+
+        window.addEventListener('resize', function () {
+            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth;
+            initCanvas();
+        });
+
+        var mouse = {
+            x: undefined,
+            y: undefined
+        };
+
+
+        window.addEventListener('mousemove', function (event) {
+            var rect = canvas.getBoundingClientRect();  // Gets the canvas boundaries
+            mouse.x = event.clientX - rect.left;  // Adjusts mouse.x relative to the canvas
+            mouse.y = event.clientY - rect.top;   // Adjusts mouse.y relative to the canvas
+            drawCircles();
+        });
+
+
+        window.addEventListener("touchmove", function (event) {
+            let touch = event.touches[0];
+            mouse.x = touch.clientX; // Touch X-coordinate relative to the viewport
+            mouse.y = touch.clientY; // Touch Y-coordinate relative to the viewport
+            drawCircles();
+        });
+
+
+        function Circle(x, y, radius, vx, vy, rgb, opacity, birth, life) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.vx = vx;
+            this.vy = vy;
+            this.birth = birth;
+            this.life = life;
+            this.opacity = opacity;
+
+            this.draw = function () {
+                c.beginPath();
+                c.arc(this.x, this.y, this.radius, Math.PI * 2, false);
+                c.fillStyle = 'rgba(' + rgb + ',' + this.opacity + ')';
+                c.fill();
+            };
+            this.update = function () {
+                if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+                    this.vx = -this.vx;
+                }
+                if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+                    this.vy = -this.vy;
+                }
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                this.opacity = 1 - (((frame - this.birth) * 1) / this.life);
+
+                if (frame > this.birth + this.life) {
+                    for (let i = 0; i < circleArray.length; i++) {
+                        if (this.birth == circleArray[i].birth && this.life == circleArray[i].life) {
+                            circleArray.splice(i, 1);
+                            break;
+                        }
+                    }
+                } else {
+                    this.draw();
+                }
+            };
+        }
+
+        var circleArray = [];
+
+        function initCanvas() {
+            circleArray = [];
+        }
+
+        var colorArray = [
+            '7, 215, 243',
+            '195, 155, 243',
+            '249, 112, 189'
+
+        ];
+
+        function drawCircles() {
+            for (let i = 0; i < 6; i++) {
+                let radius = Math.floor(Math.random() * 4) + 2;
+                let vx = (Math.random() * 2) - 1;
+                let vy = (Math.random() * 2) - 1;
+                let spawnFrame = frame;
+                let rgb = colorArray[Math.floor(Math.random() * colorArray.length)];
+                let life = 100;
+                circleArray.push(new Circle(mouse.x, mouse.y, radius, vx, vy, rgb, 1, spawnFrame, life));
+            }
+        }
+
+        var frame = 0;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            frame += 1;
+            c.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < circleArray.length; i++) {
+                circleArray[i].update();
+            }
+        }
+
+        animate();
+
+        for (let i = 1; i < 110; i++) {
+            setTimeout(function () {
+                mouse.x = 100 + i * 10;
+                mouse.y = 100;
+                drawCircles();
+            }, i * 10);
+        }
+    </script>
+
+
+
+
+    <div>
+        <div class="menu_bar">
+            <a class="home" href="index.html">Home</a>
+            <a class="project2a" href="https://lucyhu13.github.io/workbook_2A/">Project 2A</a>
+            <a class="project2b" href="https://lucyhu13.github.io/Webworkbook_2b/VSC_2B/">Project 2B</a>
+            <a class="project2c" href="index.html">Project 2C</a>
+            <a class="about" href="contact">About</a>
+
+            <a class="previous" href="week9.html">previous</a>
+            <a class="next" href="week8.html">next</a>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
