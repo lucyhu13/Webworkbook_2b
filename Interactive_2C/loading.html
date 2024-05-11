@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="weeks.css">
+    <style>
+        body {
+            margin: 0;
+            /* Removes default margin */
+            height: 100vh;
+            /* Full viewport height */
+            display: flex;
+            /* Enables flexbox */
+            justify-content: center;
+            /* Center horizontally */
+            align-items: center;
+            /* Center vertically */
+            padding: 0;
+            /* No padding needed for centering */
+            overflow: hidden;
+        }
+
+
+        /* * {
+            border: #8c7ff2 solid;
+        } */
+
+        .music {
+            width: 175px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 40%;
+            left: 43%;
+            position: fixed;
+        }
+
+
+        .music span {
+            width: 6px;
+            border-radius: 18px;
+            margin-right: 6px;
+        }
+
+        .music span:nth-child(1) {
+            /* 时间递增，参差不齐的效果 */
+            animation: bar1 2s 0.2s infinite linear;
+        }
+
+        .music span:nth-child(2) {
+            animation: bar2 2s 0.4s infinite linear;
+        }
+
+        .music span:nth-child(3) {
+            animation: bar3 2s 0.6s infinite linear;
+        }
+
+        .music span:nth-child(4) {
+            animation: bar4 2s 0.8s infinite linear;
+        }
+
+        .music span:nth-child(5) {
+            animation: bar5 2s 1.0s infinite linear;
+        }
+
+        .music span:nth-child(6) {
+            animation: bar6 2s 1.2s infinite linear;
+        }
+
+        .music span:nth-child(7) {
+            animation: bar7 2s 1.4s infinite linear;
+        }
+
+        .music span:nth-child(8) {
+            animation: bar8 2s 1.6s infinite linear;
+        }
+
+        .music span:nth-child(9) {
+            animation: bar9 2s 1.8s infinite linear;
+        }
+
+        @keyframes bar1 {
+            0% {
+                background: #f677b0;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #f677b0;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #f677b0;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar2 {
+            0% {
+                background: #df7ff2;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #df7ff2;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #df7ff2;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar3 {
+            0% {
+                background: #8c7ff2;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #8c7ff2;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #8c7ff2;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar4 {
+            0% {
+                background: #7fd0f2;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #7fd0f2;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #7fd0f2;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar5 {
+            0% {
+                background: #7ff2d3;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #7ff2d3;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #7ff2d3;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar6 {
+            0% {
+                background: #7ff2a0;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #7ff2a0;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #7ff2a0;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar7 {
+            0% {
+                background: #adf27f;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #adf27f;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #adf27f;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar8 {
+            0% {
+                background: #e7f27f;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #e7f27f;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #e7f27f;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        @keyframes bar9 {
+            0% {
+                background: #ecaa64;
+                margin-top: 25%;
+                height: 10%;
+            }
+
+            50% {
+                background: #ecaa64;
+                height: 100%;
+                margin-top: 0%;
+            }
+
+            100% {
+                background: #ecaa64;
+                height: 10%;
+                margin-top: 25%;
+            }
+        }
+
+        .full-width-height {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 100001;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="menu_bar">
+            <a class="home" href="index.html">Home</a>
+            <a class="project2a" href="https://lucyhu13.github.io/workbook_2A/">Project 2A</a>
+            <a class="project2b" href="https://lucyhu13.github.io/Webworkbook_2b/VSC_2B/">Project 2B</a>
+            <a class="project2c" href="index.html">Project 2C</a>
+            <a class="about" href="contact">About</a>
+
+            <a class="previous" href="index.html">previous</a>
+            <a class="next" href="week7.html">next</a>
+
+        </div>
+    </div>
+
+    <div style="position: relative; width: 500px; height: 300px;">
+        <a href="week7.html" class="full-width-height"></a>
+    </div>
+
+    <div class="music">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+
+
+
+</body>
+
+</html>

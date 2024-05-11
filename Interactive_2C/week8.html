@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Week7</title>
+    <link rel="stylesheet" type="text/css" href="weeks.css">
+
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
+    <style>
+        .runingimg {
+            width: 150px;
+            height: 150px;
+            position: fixed;
+            background-image: url('pics/cursor4.gif');
+            background-size: cover;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="runingimg"></div>
+
+    <header>Week 8</header>
+
+    <div class="gridcontent">
+        <h1 class="title1">Fish playground</h1>
+        <p class="p1">The principle of this device is to use a light-sensing Photoresistor, set the light value in
+            Arduino, and let the
+            Servomotor rotate when the light source is lost. You can also set the degree of rotation of the motor in the
+            software,
+            such as 45 degrees or others.</p>
+
+        <img style="height: 65vh;" class="img1" src="pics/2061_raw (1).gif" alt="">
+    </div>
+
+    <div class="gridcontent1">
+        <h1 class="title2">Led drawings</h1>
+        <p class="p2">This activity is about how to use LED lights to draw the patterns you want. First, we drew some
+            ideas on paper, and then
+            prepared the required Components. They are Control board, Breadboard, USB cable, LED matrix, 74HC595, R220
+            resister and
+            Jumpers.</p>
+        <img style="height: 70vh;" class="img2" src="pics/2058_raw (1).gif" alt="">
+        <img class="img2_1" src="pics/IMG_1752.png" alt="">
+    </div>
+
+    <div style="margin-bottom: 30vh;" class="gridcontent2">
+        <h1 class="title3">Sketch ideas</h1>
+        <p class="p3">Regarding life changes: When there is too much garbage at home, I often forget to take it away
+            when I go out, resulting
+            in a lot of garbage accumulating at home every time. So I want to make a special trash can to remind me that
+            I need to
+            throw away garbage. The main principle is to sense the smell and weight of the garbage to determine whether
+            it needs to
+            be thrown away. And connect a sensor outside the door to sense whether people go out. If the door is opened
+            + people go
+            out + the garbage is too smelly or the garbage is too heavy, it will make a sound to remind me that I need
+            to throw it
+            away.
+        </p>
+        <img style="height:70% ; width: 100%; border: solid rgb(198, 198, 198) 2px;   box-shadow: 5px 5px 5px rgba(169, 169, 169, 0.5);"
+            class="img3" src="pics/sketch.png" alt="">
+
+    </div>
+
+
+    <div>
+        <div class="menu_bar">
+            <a class="home" href="index.html">Home</a>
+            <a class="project2a" href="https://lucyhu13.github.io/workbook_2A/">Project 2A</a>
+            <a class="project2b" href="https://lucyhu13.github.io/Webworkbook_2b/VSC_2B/">Project 2B</a>
+            <a class="project2c" href="index.html">Project 2C</a>
+            <a class="about" href="contact">About</a>
+
+            <a class="previous" href="week7.html">previous</a>
+            <a class="next" href="week9.html">next</a>
+
+        </div>
+    </div>
+
+
+    <script>
+        let img = document.querySelector('.runingimg')
+        // 定义小图片的旋转角度
+        let deg = 0
+        // 定义小图片位于网页左侧的位置
+        let imgx = 0
+        // 定义小图片位于网页顶部的位置
+        let imgy = 0
+        // 定义小图片x轴的位置
+        let imgl = 0
+        // 定义小图片y轴的位置
+        let imgt = 0
+        // 定义小图片翻转的角度
+        let y = 0
+        // 定义一个计数器
+        let index = 0
+
+        window.addEventListener('mousemove', function (xyz) {
+            // 获取网页左侧距离的图片位置
+            imgx = xyz.x - img.offsetLeft - img.clientWidth / 2
+            // 多去网页顶部距离图片的位置
+            imgy = xyz.y - img.offsetTop - img.clientHeight / 2
+            // 套入公式，定义图片的旋转角度
+            deg = 360 * Math.atan(imgy / imgx) / (2 * Math.PI)
+            // 每当鼠标移动的时候重置index
+            index = 0
+            // 定义当前鼠标的位置
+            let x = event.clientX
+            // 当鼠标的x轴大于图片的时候，提普安就要对着鼠标，所以需要将图片翻转过来
+            // 否则就不用翻转
+            if (img.offsetLeft < x) {
+                y = -180
+            } else {
+                y = 0
+            }
+        })
+        setInterval(() => {
+            // 设置小图片的旋转和翻转
+            img.style.transform = "rotateZ(" + deg + "deg) rotateY(" + y + "deg)"
+            index++
+            // 在这里设置小图片的位置和速度，并判断小图片到达鼠标位置时停止移动
+            if (index < 50) {
+                imgl += imgx / 50
+                imgt += imgy / 50
+            }
+
+            img.style.left = imgl + "px"
+            img.style.top = imgt + "px"
+        }, 10)
+
+    </script>
+
+</body>
+
+</html>
